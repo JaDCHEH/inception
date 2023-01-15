@@ -54,6 +54,8 @@ services:
     container_name: mariadb
     env_file:
       - .env
+    networks:
+      - inception
     environment :
       - MYSQL_PASSWORD=${PW}
       - MYSQL_ROOT_PASSWORD=${ROOT_PW}
