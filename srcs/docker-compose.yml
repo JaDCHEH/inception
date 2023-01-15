@@ -1,10 +1,64 @@
 version: "3.5"
+
+networks:
+  inception:
+    name: inception
+
+volumes:
+  wordpress:
+    driver: local
+    name: wordpress
+    driver_opts:
+      device: /home/cjad/data/wordpress
+      o: bind
+
+
+  mariadb:
+    driver: local
+    name: mariadb
+    driver_opts:
+      device: /home/cjad/data/mariadb
+      o: bind
+
 services:
   nginx:
-    build:
-      context: .
-      dockerfile: requirements/nginx/Dockerfile
+    image: nginx
+    build: ./requirements/nginx/
     container_name: nginx
     ports:
       - "443:443"
+    depends_on:
+      - wordpress
+    networks:
+      - inception
+    volumes:
+      - wordpress:/var/www/html
+    restart: always
+
+
+  wordpress:
+    image: wordpress
+    build: ./requirements/wordpress/
+    container_name: wordpress
+    depends_on:
+      - mariadb
+    networks:
+      - inception
+    volumes:
+      - wordpress:/var/www/html
+    restart: always
+
+  mariadb:
+    image: mariadb
+    build: ./requirements/mariadb/
+    container_name: mariadb
+    env_file:
+      - .env
+    environment :
+      - MYSQL_PASSWORD=${PW}
+      - MYSQL_ROOT_PASSWORD=${ROOT_PW}
+      - MYSQL_DATABASE=${DATABASE}
+      - MYSQL_USER=${USER}
+    volumes:
+      - mariadb:/var/lib/mysql
     restart: always
