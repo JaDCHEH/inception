@@ -7,11 +7,11 @@ RUN apt-get update -y && \
 	mkdir /etc/nginx/ssl
 
 RUN openssl req -x509 -sha256 -days 356 -nodes -newkey rsa:2048 \
-	-keyout etc/nginx/ssl/cjad.42.fr.key \
-	-out etc/nginx/ssl/cjad.42.fr.crt \
+	-out /etc/ssl/certs/cjad.42.fr.crt \
+	-keyout /etc/ssl/private/cjad.42.fr.key \
 	-subj "/C=MA/ST=BENGURIR/L=BENGURIR/O=1337/OU=jad/CN=cjad.42.fr"
 
-COPY conf/nginx.conf etc/nginx/nginx.conf
+COPY ./conf/nginx.conf /etc/nginx/nginx.conf
 
 EXPOSE 443
 
