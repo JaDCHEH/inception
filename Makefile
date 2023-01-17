@@ -11,3 +11,9 @@ git :
 	git add .
 	git commit -m "$m"
 	git push origin master
+
+clean :
+	sudo docker image rm -f $m
+
+logs :
+	sudo docker logs $m
