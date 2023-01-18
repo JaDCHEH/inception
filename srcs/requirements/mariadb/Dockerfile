@@ -7,7 +7,10 @@ RUN apt-get update -y && \
 
 COPY ./conf/50-server.cnf /etc/mysql/mariadb.conf.d/
 
-COPY ./tools/db_create.sh /
+COPY ./tools/db_create.sql /var/www/
 
-CMD ["/db_create.sh"]
+EXPOSE 3306
 
+RUN service mysql start && mysql < /var/www/db_create.sql && rm -f /var/www/db_create.sql;
+
+CMD ["mysqld"]

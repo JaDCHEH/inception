@@ -32,7 +32,7 @@ wp core install --url=www.cjad.42.fr/ --title=inception --admin_user=cjad --admi
 
 
 
-wp user create cjad cjad@student.1337.ma --role=author --user_pass=jad --allow-root
+wp user create jad cjad@student.ma --role=author --user_pass=jaad --allow-root
 
 
 wp theme install astra --activate --allow-root
