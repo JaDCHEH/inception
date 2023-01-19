@@ -27,12 +27,12 @@ sed -i -r "s/db1/$db_name/1"   wp-config.php
 sed -i -r "s/user/$db_user/1"  wp-config.php
 sed -i -r "s/pwd/$db_pwd/1"    wp-config.php
 
-wp core install --url=www.cjad.42.fr/ --title=inception --admin_user=cjad --admin_password=jad --admin_email=cjad@student.1337.ma --skip-email --allow-root
+wp core install --url=$wp_url/ --title=$wp_title --admin_user=$wp_admin --admin_password=$wp_admin_pwd --admin_email=$wp_admin_email --skip-email --allow-root
 
 
 
 
-wp user create jad cjad@student.ma --role=author --user_pass=jaad --allow-root
+wp user create $wp_user $wp_user_email --role=author --user_pass=$wp_user_pwd --allow-root
 
 
 wp theme install astra --activate --allow-root
