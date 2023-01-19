@@ -58,11 +58,6 @@ services:
       - .env
     networks:
       - inception
-    # environment :
-    #   - MYSQL_PASSWORD=${PW}
-    #   - MYSQL_ROOT_PASSWORD=${ROOT_PW}
-    #   - MYSQL_DATABASE=${DATABASE}
-    #   - MYSQL_USER=${USER}
     volumes:
       - mariadb:/var/lib/mysql
     restart: always
