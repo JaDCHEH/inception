@@ -11,7 +11,7 @@ RUN openssl req -x509 -sha256 -days 356 -nodes -newkey rsa:2048 \
 	-keyout /etc/ssl/private/cjad.42.fr.key \
 	-subj "/C=MA/ST=BENGURIR/L=BENGURIR/O=1337/OU=jad/CN=cjad.42.fr"
 
-COPY ./conf/nginx.conf /etc/nginx/nginx.conf
+COPY ./conf/default /etc/nginx/sites-available/
 
 EXPOSE 443
 
