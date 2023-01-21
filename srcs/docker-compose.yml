@@ -59,5 +59,20 @@ services:
     networks:
       - inception
     volumes:
-      - mariadb:/var/lib/mysql
+      - mariadb:/var/lib/mysqla
+    restart: always
+  ftp:
+    container_name: ftp
+    image: ftp
+    build: ./requirements/bonus/ftp
+    env_file:
+      - .env
+    depends_on:
+      - wordpress
+    volumes:
+      - wordpress:/home/cjad/ftp/fi
+    ports:
+      - "21:21"
+      - "20:20"
+      - "40000-40005:40000-40005"
     restart: always
