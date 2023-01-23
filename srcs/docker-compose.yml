@@ -85,3 +85,13 @@ services:
       - inception
     ports:
       - "8080:8080"
+  adminer:
+    container_name: adminer
+    image: adminer
+    build: ./requirements/bonus/adminer
+    networks:
+      - inception
+    depends_on:
+      - mariadb
+    ports:
+      - "8181:8181"
