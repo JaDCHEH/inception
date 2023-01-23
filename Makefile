@@ -1,11 +1,11 @@
 up :
-	sudo docker-compose -f ./srcs/docker-compose.yml up -d
+	docker-compose -f ./srcs/docker-compose.yml up -d
 
 down :
-	sudo docker-compose -f ./srcs/docker-compose.yml down
+	docker-compose -f ./srcs/docker-compose.yml down
 
 ps :
-	sudo docker ps
+	docker ps
 
 git :
 	git add .
@@ -13,7 +13,10 @@ git :
 	git push origin master
 
 clean :
-	sudo docker image rm -f $m
+	docker image rm -f $m
 
 logs :
-	sudo docker logs $m
+	docker logs $m
+
+list :
+	docker images
