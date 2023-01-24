@@ -1,8 +1,6 @@
 FROM debian:buster
 
-RUN apt-get -y update &&\
-	apt-get -y upgrade &&\
-	apt update -y &&\
+RUN apt update -y &&\
 	apt upgrade -y
 
 RUN apt install wget -y &&\

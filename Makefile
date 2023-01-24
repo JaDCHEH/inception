@@ -20,3 +20,6 @@ logs :
 
 list :
 	docker images
+
+exec :
+	docker exec -it $c /bin/bash

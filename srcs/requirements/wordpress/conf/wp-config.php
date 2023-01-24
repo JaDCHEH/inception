@@ -55,7 +55,14 @@ define('NONCE_KEY',        'Ay&~TZ2Cw#W4*Xjb>$%b_{&GQ0h+:92i^PMi{)CmWwuwt[:Ub-|)
 define('AUTH_SALT',        '+ATWwlQCL9 Q!zC7LPuI/>2i,@rt{SBeO*b;12QCbj!,MuymEr@IrU?epb+Xb$eb');
 define('SECURE_AUTH_SALT', '</mhoB{j ;`aj<+G71k7C#hS,+J)f*8DS@Qn+M&C6D8JyPW6v/cw4,/0sTuZ//O&');
 define('LOGGED_IN_SALT',   'mdgwB/.f$E|!WNjs=^_I(~wOMzg2baJb([ewdRe z;[%i]@!B@*?mg;ZP2fqb2-w');
-define('NONCE_SALT',       'BuhGwcK!H;IQ_uMO|om*K8Hwx2a<$m,l7IdMUrSi*sK73x1[&2gkfC+*W-AtB+eI');   
+define('NONCE_SALT',       'BuhGwcK!H;IQ_uMO|om*K8Hwx2a<$m,l7IdMUrSi*sK73x1[&2gkfC+*W-AtB+eI');
+
+#IP or hostname of the target server. This is ignored when connecting 
+#to Redis using UNIX domain sockets.
+define( 'WP_REDIS_HOST', 'redis');
+#TCP/IP port of the target server. This is ignored when connecting
+#to Redis using UNIX domain sockets.
+define( 'WP_REDIS_PORT', 6379 );
 
 define('WP_CACHE', true);
 
