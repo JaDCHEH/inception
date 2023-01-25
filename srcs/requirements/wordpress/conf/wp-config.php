@@ -48,21 +48,18 @@ define( 'WP_ALLOW_REPAIR', true );
  *
  * @since 2.6.0
  */
-define('AUTH_KEY',         'd.f9h7}pzT-C<G+)geAJ.)-mapifhtSfci-t)!er;&+=2y:|Is],0.{0fa=S=(D>');
-define('SECURE_AUTH_KEY',  'n|:-Bt6c}8:aQ:yxjX#EC~<)!/ke1g&vbyW=Lk:${^);[Pj>i+2Ere:)g,^lI;MJ');
-define('LOGGED_IN_KEY',    'DjAJr1:oE!io4.?^e>=)K+rk@}FH38A=i4>+6~hhUE-1|Plb?{ZcW_YDTA9!c!|}');
-define('NONCE_KEY',        'Ay&~TZ2Cw#W4*Xjb>$%b_{&GQ0h+:92i^PMi{)CmWwuwt[:Ub-|)Vt|YJM*me>p~');
-define('AUTH_SALT',        '+ATWwlQCL9 Q!zC7LPuI/>2i,@rt{SBeO*b;12QCbj!,MuymEr@IrU?epb+Xb$eb');
-define('SECURE_AUTH_SALT', '</mhoB{j ;`aj<+G71k7C#hS,+J)f*8DS@Qn+M&C6D8JyPW6v/cw4,/0sTuZ//O&');
-define('LOGGED_IN_SALT',   'mdgwB/.f$E|!WNjs=^_I(~wOMzg2baJb([ewdRe z;[%i]@!B@*?mg;ZP2fqb2-w');
-define('NONCE_SALT',       'BuhGwcK!H;IQ_uMO|om*K8Hwx2a<$m,l7IdMUrSi*sK73x1[&2gkfC+*W-AtB+eI');
+define('AUTH_KEY',         'jinxm%F.&[`[+5a 6asIgOF/w5Bk.8l=o|V%T@j#-|A:FbK=4a-9^[)yz`k+)Eo.');
+define('SECURE_AUTH_KEY',  'PUkM0-^phpvVszbr969r9r&Bd?Jz)%q^2=,m/?>#[,b08U:>6R7X||,n1P9epX[t');
+define('LOGGED_IN_KEY',    'u?G8^-*@p5(T|I7v9b-+~|[rmp?B.P61y{R*iYr.iA7S=%p;FQZ6C^(,eSqSA?]*');
+define('NONCE_KEY',        'u#2Eq_BJ+zLqE{c8.cP/)n.,7[[DjudJ+Ram4`K-q+G6Z?*8DJL>5}/xBt5`w__z');
+define('AUTH_SALT',        'UQwwfs--j V>}q|yf%2OYC*-Q8D+`PCO:-_|$v+I{QO6xp;fEU7dL|$w7k`I2r+0');
+define('SECURE_AUTH_SALT', 'IQ{J)@G_M-4&w1(:Hk!-hCKi+eeQ,6gn2un+xd2(p:61C:DLS+${H=)99?<$L?4u');
+define('LOGGED_IN_SALT',   '6639QK? 3V/)PBA!4c+2Hc)q#@F<xe-q%]yp>([B[Gfq=vAwX,}.e1su;t~7*lHF');
+define('NONCE_SALT',       '|@/[}Bj|vqy9(g|6-F#bzE`4[Ec<DdiX2kZRs]+k;rIrU^m-R*m2qi%J;J2tr^Cy');
 
-#IP or hostname of the target server. This is ignored when connecting 
-#to Redis using UNIX domain sockets.
-define( 'WP_REDIS_HOST', 'redis');
-#TCP/IP port of the target server. This is ignored when connecting
-#to Redis using UNIX domain sockets.
-define( 'WP_REDIS_PORT', 6379 );
+define( 'WP_REDIS_HOST', 'redis' );
+define( 'WP_REDIS_PORT', 6379 );     
+
 
 define('WP_CACHE', true);
 

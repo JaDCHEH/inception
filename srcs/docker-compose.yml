@@ -6,15 +6,16 @@ networks:
 
 volumes:
   wordpress:
-    driver: local
     name: wordpress
+    driver: local
     driver_opts:
       device: /home/cjad/data/wordpress
       o: bind
 
+
   mariadb:
-    driver: local
     name: mariadb
+    driver: local
     driver_opts:
       device: /home/cjad/data/mariadb
       o: bind
@@ -33,7 +34,6 @@ services:
     volumes:
       - wordpress:/var/www/html
     restart: always
-
 
   wordpress:
     image: wordpress
@@ -58,8 +58,47 @@ services:
     networks:
       - inception
     volumes:
-      - mariadb:/var/lib/mysqla
+      - mariadb:/var/lib/mysql
     restart: always
+    
+  adminer:
+    image: adminer
+    build: ./requirements/bonus/adminer/
+    container_name: adminer
+    depends_on:
+      - mariadb
+    ports:
+      - "8181:8181"
+    networks:
+      - inception
+    restart: always
+
+  redis:
+    image: redis
+    build: ./requirements/bonus/redis/
+    container_name: redis
+    depends_on:
+      - wordpress
+    networks:
+      - inception
+    volumes:
+      - wordpress:/var/www/html
+    restart: always
+
+  cadvisor:
+    image: cadvisor
+    build: ./requirements/bonus/cadvisor/
+    container_name: cadvisor
+    networks:
+      - inception
+    restart: always
+    volumes:
+      - /:/rootfs:ro
+      - /var/run:/var/run:ro 
+      - /sys:/sys:ro 
+      - /var/lib/docker/:/var/lib/docker:ro
+    ports:
+      - "8080:8080"
 
   ftp:
     container_name: ftp
@@ -76,43 +115,4 @@ services:
     ports:
       - "21:21"
       - "40000-40005:40000-40005"
-    restart: always
-
-  adminer:
-    container_name: adminer
-    image: adminer
-    build: ./requirements/bonus/adminer
-    networks:
-      - inception
-    depends_on:
-      - mariadb
-    ports:
-      - "8181:8181"
-    restart: always
-
-  redis:
-    container_name: redis
-    image: redis
-    build: ./requirements/bonus/redis
-    networks:
-      - inception
-    depends_on:
-      - wordpress
-    volumes:
-      - wordpress:/var/www/html
-    restart: always
-
-  cadvisor:
-    container_name: cadvisor
-    image: cadvisor
-    build: ./requirements/bonus/cadvisor
-    networks:
-      - inception
-    volumes:
-      - /:/rootfs:ro
-      - /var/run:/var/run:ro 
-      - /sys:/sys:ro 
-      - /var/lib/docker/:/var/lib/docker:ro
-    ports:
-      - "8080:8080"
     restart: always
