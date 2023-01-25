@@ -30,6 +30,8 @@ wp core install --url=$wp_url/ --title=$wp_title --admin_user=$wp_admin --admin_
 
 wp user create $wp_user $wp_user_email --role=author --user_pass=$wp_user_pwd --allow-root
 
+wp user create $wp_hater $wp_hater_email --role=author --user_pass=$wp_hater --allow-root
+
 wp plugin install redis-cache --activate --allow-root
 
 wp plugin update --all --allow-root
